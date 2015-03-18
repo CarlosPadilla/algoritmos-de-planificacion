@@ -6,7 +6,9 @@ import javax.swing.JOptionPane;
  * @author ALEJANDRA KSTELLANOS
  */
 public class vista extends javax.swing.JFrame {
-
+    private int FCFS = 1;
+    private int ROUND_ROBIN = 1;
+    private int MULTIPLES_COLAS = 1;
     public vista() {
         initComponents();
     }
@@ -80,23 +82,26 @@ public class vista extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(multiplesColas)
-                                .addComponent(fcfs, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(roundRobin, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(fcfs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(multiplesColas, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                                    .addGap(8, 8, 8)))
+                            .addComponent(roundRobin, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 90, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -134,7 +139,7 @@ public class vista extends javax.swing.JFrame {
     private void roundRobinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundRobinMouseClicked
     round_robin vista = new round_robin(); 
     vista.setVisible(true);
-    
+    new ejecucion(this.ROUND_ROBIN).setVisible(true);
     
     }//GEN-LAST:event_roundRobinMouseClicked
 
@@ -144,12 +149,13 @@ public class vista extends javax.swing.JFrame {
     private void multiplesColasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiplesColasMouseClicked
         multiplesColas vista = new multiplesColas();
         vista.setVisible(true);
+        new ejecucion(this.MULTIPLES_COLAS).setVisible(true);
     }//GEN-LAST:event_multiplesColasMouseClicked
 
     private void fcfsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fcfsMouseClicked
         fcfs vista = new fcfs();
         vista.setVisible(true);
-        new ejecucion().setVisible(true);
+        new ejecucion(this.FCFS).setVisible(true);
     }//GEN-LAST:event_fcfsMouseClicked
 
     public static void main(String args[]) {

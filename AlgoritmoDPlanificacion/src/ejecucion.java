@@ -7,8 +7,9 @@
 public class ejecucion extends javax.swing.JFrame {
 
    public CPU datos;
-    public ejecucion() {
-        this.datos = new CPU(this, 4);
+   public int TAMAÑO_PREDEFINIDO = 4;
+    public ejecucion(int algoritmo) {
+        this.datos = new CPU(this, algoritmo,this.TAMAÑO_PREDEFINIDO);
         initComponents();
         
     }
@@ -221,6 +222,11 @@ public class ejecucion extends javax.swing.JFrame {
         Ejecutar.setText("Ejecutar");
 
         Cerrar.setText("Cerrar");
+        Cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarActionPerformed(evt);
+            }
+        });
 
         Agregar.setText("Agregar");
         Agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -289,7 +295,7 @@ public class ejecucion extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
                     .addComponent(Ejecutar))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,6 +349,10 @@ public class ejecucion extends javax.swing.JFrame {
     new vista2(this.datos).setVisible(true);
         datos.imprimir();
     }//GEN-LAST:event_AgregarActionPerformed
+
+    private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
+      this.dispose();
+    }//GEN-LAST:event_CerrarActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

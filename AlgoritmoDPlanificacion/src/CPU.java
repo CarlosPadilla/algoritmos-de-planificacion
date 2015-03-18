@@ -8,20 +8,22 @@
  * @author carlos
  */
 public class CPU {
+    // algoritmo
+    // 1 = FCFS
+    // 2 = Round Robim
+    // 3 = colas multiples
+    private int algoritmo;
     private Proceso[] cola; 
     private Proceso enEjecucion; 
     private ejecucion VMenu;
     public int tamaño;
 
-//    colasmultiples
-    public CPU(ejecucion visual, int tamaño){
+    public CPU(ejecucion visual, int algoritmo, int tamaño){
+        this.algoritmo = algoritmo;
         this.cola = new Proceso[tamaño];
         this.VMenu = visual;
     }
-//    roundRobin
-    public CPU(){
-        
-    }
+
     public void Ejecutar(){
 
     }
@@ -36,7 +38,26 @@ public class CPU {
     public void recorrer(){
 
     }
+    /**
+     *
+     * @param nombre
+     * @param tiempo
+     * @param prioridad
+     */
     public void nuevoProceso(String nombre, int tiempo, char prioridad){
-        this.cola[0] = new Proceso(nombre, tiempo, prioridad);
+        boolean escrito = false;
+        int posicion = 0;
+        while (!escrito && posicion < this.tamaño) {
+            if(this.cola[posicion] == null){
+                if(prioridad == ' '){
+                    this.cola[posicion] = new Proceso(nombre, tiempo);
+                    escrito = true;
+                }else{
+                    this.cola[posicion] = new Proceso(nombre, tiempo, prioridad);
+                    escrito = true;
+                }
+            }
+            posicion++;
+        }
     }
 }

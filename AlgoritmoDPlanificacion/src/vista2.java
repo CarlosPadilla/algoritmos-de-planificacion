@@ -1,4 +1,8 @@
 
+import java.util.StringTokenizer;
+import javax.swing.DefaultComboBoxModel;
+
+
 /**
  *
  * @author ALEJANDRA KSTELLANOS
@@ -21,10 +25,10 @@ public class vista2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tiempoFil = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        prioridadFil = new javax.swing.JTextField();
         agregarMas = new javax.swing.JCheckBox();
         agregar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
+        prioridadFil = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar proceso\n");
@@ -47,6 +51,8 @@ public class vista2 extends javax.swing.JFrame {
 
         cancelar.setText("Cancelar");
 
+        prioridadFil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D", "E", "F" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,14 +68,14 @@ public class vista2 extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tiempoFil, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                            .addComponent(tiempoFil)
                             .addComponent(nombreFil)
-                            .addComponent(prioridadFil))))
+                            .addComponent(prioridadFil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(agregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(cancelar)
                 .addGap(18, 18, 18))
         );
@@ -87,7 +93,8 @@ public class vista2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(prioridadFil, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(prioridadFil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
@@ -105,7 +112,11 @@ public class vista2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-       this.contenedor.nuevoProceso(this.nombreFil.getText(),Integer.parseInt(this.tiempoFil.getText()), this.prioridadFil.getText().charAt(0));
+       this.contenedor.nuevoProceso(
+               this.nombreFil.getText(),
+               Integer.parseInt(this.tiempoFil.getText()), 
+               this.prioridadFil.getSelectedItem().toString().charAt(0)
+       );
        this.contenedor.imprimir();
     }//GEN-LAST:event_agregarActionPerformed
 
@@ -117,7 +128,7 @@ public class vista2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField nombreFil;
-    private javax.swing.JTextField prioridadFil;
+    private javax.swing.JComboBox prioridadFil;
     private javax.swing.JTextField tiempoFil;
     // End of variables declaration//GEN-END:variables
 }

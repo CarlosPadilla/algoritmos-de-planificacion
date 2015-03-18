@@ -18,7 +18,8 @@ class Proceso {
         this.priority = priority;
     }
     public Proceso(String nombre, int time){
-        
+        this.nombre = nombre;
+        this.time = time;
     }
      @Override
     public String toString(){
