@@ -26,6 +26,19 @@ class Proceso {
         return "hola " + this.nombre + " tiempo: " + this.time;
 
     }
+     public String getNombre(){
+        return this.nombre;
+
+    }
+     public String getTiempo(){
+        return Integer.toString(this.time);
+
+    }
+     public String obtenerPrioridad(){
+        return String.valueOf(this.priority);
+
+    }
+     
      public boolean ejecutable(){
          return --this.time > 0;
      }

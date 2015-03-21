@@ -20,12 +20,14 @@ public class vista extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        jLabel2 = new javax.swing.JLabel();
+        fcfs = new javax.swing.JButton();
         roundRobin = new javax.swing.JButton();
         multiplesColas = new javax.swing.JButton();
-        fcfs = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
@@ -35,6 +37,25 @@ public class vista extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Descripción");
         setIconImages(null);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Algoritmos de Planificación");
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 204));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Elige una opción");
+        jLabel2.setBounds(10, 10, 120, 17);
+        jLayeredPane2.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        fcfs.setText("FCFS");
+        fcfs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fcfsMouseClicked(evt);
+            }
+        });
+        fcfs.setBounds(10, 170, 113, 34);
+        jLayeredPane2.add(fcfs, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         roundRobin.setText("Round Robin");
         roundRobin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -47,6 +68,8 @@ public class vista extends javax.swing.JFrame {
                 roundRobinActionPerformed(evt);
             }
         });
+        roundRobin.setBounds(10, 60, 113, 31);
+        jLayeredPane2.add(roundRobin, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         multiplesColas.setText("Múltiples colas");
         multiplesColas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -59,74 +82,42 @@ public class vista extends javax.swing.JFrame {
                 multiplesColasActionPerformed(evt);
             }
         });
+        multiplesColas.setBounds(10, 110, 113, 31);
+        jLayeredPane2.add(multiplesColas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        fcfs.setText("FCFS");
-        fcfs.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fcfsMouseClicked(evt);
-            }
-        });
+        jLayeredPane2.setBounds(0, 0, 230, 320);
+        jLayeredPane1.add(jLayeredPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Algoritmos de Planificación");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Elige una opción");
-
-        jLabel4.setBackground(new java.awt.Color(0, 0, 204));
-
-        jLabel3.setText("poner imagen");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/images.jpg"))); // NOI18N
+        jLabel3.setBounds(90, 0, 180, 290);
+        jLayeredPane1.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(fcfs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(multiplesColas, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-                                    .addGap(8, 8, 8)))
-                            .addComponent(roundRobin, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel1)
-                        .addGap(0, 90, Short.MAX_VALUE)))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addComponent(jLabel4)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(23, 23, 23)
-                                .addComponent(roundRobin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(multiplesColas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(fcfs, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(28, 28, 28)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -196,6 +187,8 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton multiplesColas;

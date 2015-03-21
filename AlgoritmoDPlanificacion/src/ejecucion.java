@@ -1,4 +1,9 @@
 
+import javax.swing.JLabel;
+
+
+
+
 
 /**
  *
@@ -8,78 +13,112 @@ public class ejecucion extends javax.swing.JFrame {
 
    public CPU datos;
    public int TAMAÑO_PREDEFINIDO = 4;
+   public javax.swing.JLabel[] nombres;
+   public javax.swing.JLabel[] quantums;
+   public javax.swing.JLabel[] prioridades;
+   
     public ejecucion(int algoritmo) {
-        this.datos = new CPU(this, algoritmo, this.TAMAÑO_PREDEFINIDO);
         initComponents();
-        
+        this.nombres = new javax.swing.JLabel[this.TAMAÑO_PREDEFINIDO];
+        this.quantums = new javax.swing.JLabel[this.TAMAÑO_PREDEFINIDO];
+        this.prioridades = new javax.swing.JLabel[this.TAMAÑO_PREDEFINIDO];
+        this.nombres[0] = this.proceso_1;
+        this.nombres[1] = this.proceso_2;
+        this.nombres[2] = this.proceso_3;
+        this.nombres[3] = this.proceso_4;
+        this.quantums[0] = this.quantum_1;
+        this.quantums[1] = this.quantum_2;
+        this.quantums[2] = this.quantum_3;
+        this.quantums[3] = this.quantum_4;
+        this.prioridades[0] = this.prioridad_1;
+        this.prioridades[1] = this.prioridad_2;
+        this.prioridades[2] = this.prioridad_3;
+        this.prioridades[3] = this.prioridad_4;
+        this.datos = new CPU(this, algoritmo, this.TAMAÑO_PREDEFINIDO);
     }
-    public void setVisible(boolean vista, boolean activar){
-        this.jLabel19.setVisible(activar);
-        this.jLabel3.setVisible(activar);
+    public void setVisible(boolean vista){
+        boolean activar = this.datos.activar();
+        for (JLabel labelPrioridad : this.prioridades) {
+            labelPrioridad.setVisible(activar);
+        }
+        this.exPrioridad.setVisible(activar);
+        this.ejecucionPrioridad.setVisible(activar);
+        this.prioridadLabel.setVisible(activar);
         super.setVisible(vista);
         
     }
-
-    
+    public void MostrarDatosEnEjecucion(String nombre,String tiempo,String prioridad){
+        this.exNombre.setText(nombre);
+        this.exTiempo.setText(tiempo);
+        this.exPrioridad.setText(prioridad);
+        
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
+        proceso_1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        proceso_3 = new javax.swing.JLabel();
+        proceso_2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        quantum_2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        quantum_3 = new javax.swing.JLabel();
+        quantum_1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        panelEx = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        ejecucionNombre = new javax.swing.JLabel();
+        ejecucionTiempo = new javax.swing.JLabel();
+        exNombre = new javax.swing.JLabel();
+        exTiempo = new javax.swing.JLabel();
+        ejecucionPrioridad = new javax.swing.JLabel();
+        exPrioridad = new javax.swing.JLabel();
+        prioridadLabel = new javax.swing.JLabel();
+        prioridad_2 = new javax.swing.JLabel();
+        prioridad_1 = new javax.swing.JLabel();
+        prioridad_3 = new javax.swing.JLabel();
+        prioridad_4 = new javax.swing.JLabel();
+        proceso_4 = new javax.swing.JLabel();
+        quantum_4 = new javax.swing.JLabel();
         Ejecutar = new javax.swing.JButton();
         Cerrar = new javax.swing.JButton();
         Agregar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("proceso\n");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("kjkmjkndjkoe      ");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel1.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel1.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel1.setPreferredSize(new java.awt.Dimension(100, 16));
+        proceso_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        proceso_1.setText("kjkmjkndjkoe      ");
+        proceso_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        proceso_1.setMaximumSize(new java.awt.Dimension(100, 16));
+        proceso_1.setMinimumSize(new java.awt.Dimension(100, 16));
+        proceso_1.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(proceso_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 186, 50, -1));
 
         jLabel2.setText("kjkmjkndjkoe      ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 186, 0, 10));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("kjkmjkndjkoe      ");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel3.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel3.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel3.setPreferredSize(new java.awt.Dimension(100, 16));
+        proceso_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        proceso_3.setText("kjkmjkndjkoe      ");
+        proceso_3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        proceso_3.setMaximumSize(new java.awt.Dimension(100, 16));
+        proceso_3.setMinimumSize(new java.awt.Dimension(100, 16));
+        proceso_3.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(proceso_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 186, 50, -1));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("kjkmjkndjkoe      ");
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel4.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel4.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel4.setPreferredSize(new java.awt.Dimension(100, 16));
+        proceso_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        proceso_2.setText("kjkmjkndjkoe      ");
+        proceso_2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        proceso_2.setMaximumSize(new java.awt.Dimension(100, 16));
+        proceso_2.setMinimumSize(new java.awt.Dimension(100, 16));
+        proceso_2.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(proceso_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 186, 50, -1));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("kjkmjkndjkoe      ");
@@ -87,13 +126,15 @@ public class ejecucion extends javax.swing.JFrame {
         jLabel5.setMaximumSize(new java.awt.Dimension(100, 16));
         jLabel5.setMinimumSize(new java.awt.Dimension(100, 16));
         jLabel5.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 186, 0, -1));
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("kjkmjkndjkoe      ");
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel6.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel6.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel6.setPreferredSize(new java.awt.Dimension(100, 16));
+        quantum_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quantum_2.setText("kjkmjkndjkoe      ");
+        quantum_2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        quantum_2.setMaximumSize(new java.awt.Dimension(100, 16));
+        quantum_2.setMinimumSize(new java.awt.Dimension(100, 16));
+        quantum_2.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(quantum_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 208, 50, -1));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("kjkmjkndjkoe      ");
@@ -101,129 +142,150 @@ public class ejecucion extends javax.swing.JFrame {
         jLabel7.setMaximumSize(new java.awt.Dimension(100, 16));
         jLabel7.setMinimumSize(new java.awt.Dimension(100, 16));
         jLabel7.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 208, 0, -1));
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("kjkmjkndjkoe      ");
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel8.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel8.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel8.setPreferredSize(new java.awt.Dimension(100, 16));
+        quantum_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quantum_3.setText("kjkmjkndjkoe      ");
+        quantum_3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        quantum_3.setMaximumSize(new java.awt.Dimension(100, 16));
+        quantum_3.setMinimumSize(new java.awt.Dimension(100, 16));
+        quantum_3.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(quantum_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 208, 50, -1));
 
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("kjkmjkndjkoe      ");
-        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel9.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel9.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel9.setPreferredSize(new java.awt.Dimension(100, 16));
+        quantum_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quantum_1.setText("kjkmjkndjkoe      ");
+        quantum_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        quantum_1.setMaximumSize(new java.awt.Dimension(100, 16));
+        quantum_1.setMinimumSize(new java.awt.Dimension(100, 16));
+        quantum_1.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(quantum_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 208, 50, -1));
 
         jLabel10.setText("Proceso");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 187, -1, -1));
 
         jLabel11.setText("Quantum");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 209, -1, -1));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelEx.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelEx.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("En ejecución");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 0);
+        panelEx.add(jLabel12, gridBagConstraints);
 
-        jLabel13.setText("Proceso");
+        ejecucionNombre.setText("Proceso");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 11, 0, 0);
+        panelEx.add(ejecucionNombre, gridBagConstraints);
 
-        jLabel14.setText("Quantum");
+        ejecucionTiempo.setText("Quantum");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 11, 0, 0);
+        panelEx.add(ejecucionTiempo, gridBagConstraints);
 
-        jLabel15.setText("1");
+        exNombre.setText("1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 11);
+        panelEx.add(exNombre, gridBagConstraints);
 
-        jLabel16.setText("!");
+        exTiempo.setText("!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 28;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 11);
+        panelEx.add(exTiempo, gridBagConstraints);
 
-        jLabel24.setText("Prioridad");
+        ejecucionPrioridad.setText("Prioridad");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 11, 38, 0);
+        panelEx.add(ejecucionPrioridad, gridBagConstraints);
 
-        jLabel25.setText("2");
+        exPrioridad.setText("2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 32;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 4, 38, 11);
+        panelEx.add(exPrioridad, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel25)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel25))
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
+        getContentPane().add(panelEx, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 11, -1, -1));
 
-        jLabel17.setText("Prioridad");
+        prioridadLabel.setText("Prioridad");
+        getContentPane().add(prioridadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 236, -1, -1));
 
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("kjkmjkndjkoe      ");
-        jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel18.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel18.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel18.setPreferredSize(new java.awt.Dimension(100, 16));
+        prioridad_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prioridad_2.setText("kjkmjkndjkoe      ");
+        prioridad_2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        prioridad_2.setMaximumSize(new java.awt.Dimension(100, 16));
+        prioridad_2.setMinimumSize(new java.awt.Dimension(100, 16));
+        prioridad_2.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(prioridad_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 235, 50, -1));
 
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("kjkmjkndjkoe      ");
-        jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel19.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel19.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel19.setPreferredSize(new java.awt.Dimension(100, 16));
+        prioridad_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prioridad_1.setText("kjkmjkndjkoe      ");
+        prioridad_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        prioridad_1.setMaximumSize(new java.awt.Dimension(100, 16));
+        prioridad_1.setMinimumSize(new java.awt.Dimension(100, 16));
+        prioridad_1.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(prioridad_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 235, 50, -1));
 
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("kjkmjkndjkoe      ");
-        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel20.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel20.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel20.setPreferredSize(new java.awt.Dimension(100, 16));
+        prioridad_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prioridad_3.setText("kjkmjkndjkoe      ");
+        prioridad_3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        prioridad_3.setMaximumSize(new java.awt.Dimension(100, 16));
+        prioridad_3.setMinimumSize(new java.awt.Dimension(100, 16));
+        prioridad_3.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(prioridad_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 235, 50, -1));
 
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("kjkmjkndjkoe      ");
-        jLabel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel21.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel21.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel21.setPreferredSize(new java.awt.Dimension(100, 16));
+        prioridad_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prioridad_4.setText("kjkmjkndjkoe      ");
+        prioridad_4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        prioridad_4.setMaximumSize(new java.awt.Dimension(100, 16));
+        prioridad_4.setMinimumSize(new java.awt.Dimension(100, 16));
+        prioridad_4.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(prioridad_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 235, 50, -1));
 
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("kjkmjkndjkoe      ");
-        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel22.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel22.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel22.setPreferredSize(new java.awt.Dimension(100, 16));
+        proceso_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        proceso_4.setText("kjkmjkndjkoe      ");
+        proceso_4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        proceso_4.setMaximumSize(new java.awt.Dimension(100, 16));
+        proceso_4.setMinimumSize(new java.awt.Dimension(100, 16));
+        proceso_4.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(proceso_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 186, 50, -1));
 
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("kjkmjkndjkoe      ");
-        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel23.setMaximumSize(new java.awt.Dimension(100, 16));
-        jLabel23.setMinimumSize(new java.awt.Dimension(100, 16));
-        jLabel23.setPreferredSize(new java.awt.Dimension(100, 16));
+        quantum_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quantum_4.setText("kjkmjkndjkoe      ");
+        quantum_4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        quantum_4.setMaximumSize(new java.awt.Dimension(100, 16));
+        quantum_4.setMinimumSize(new java.awt.Dimension(100, 16));
+        quantum_4.setPreferredSize(new java.awt.Dimension(100, 16));
+        getContentPane().add(quantum_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 208, 50, -1));
 
         Ejecutar.setText("Ejecutar");
         Ejecutar.addActionListener(new java.awt.event.ActionListener() {
@@ -231,13 +293,15 @@ public class ejecucion extends javax.swing.JFrame {
                 EjecutarActionPerformed(evt);
             }
         });
+        getContentPane().add(Ejecutar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 80, -1));
 
-        Cerrar.setText("Cerrar");
+        Cerrar.setText("Salir");
         Cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CerrarActionPerformed(evt);
             }
         });
+        getContentPane().add(Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 73, 30));
 
         Agregar.setText("Agregar");
         Agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -245,161 +309,69 @@ public class ejecucion extends javax.swing.JFrame {
                 AgregarActionPerformed(evt);
             }
         });
+        getContentPane().add(Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 41, 80, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel17)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel11))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Agregar))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5, 0, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7, 0, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(8, 8, 8)
-                                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                    .addComponent(Ejecutar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(Agregar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Ejecutar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Cerrar)))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
+        jButton1.setText("Cerrar ventana");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 110, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-    new vista2(this.datos).setVisible(true,this.datos.activar());
+    new vista2(this.datos).setVisible(true);
         datos.imprimir();
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
-      this.dispose();
+   
+        System.exit(0); 
     }//GEN-LAST:event_CerrarActionPerformed
 
     private void EjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjecutarActionPerformed
-       this.datos.start();
+        this.datos.start();
        
     }//GEN-LAST:event_EjecutarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
     private javax.swing.JButton Cerrar;
     private javax.swing.JButton Ejecutar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel ejecucionNombre;
+    private javax.swing.JLabel ejecucionPrioridad;
+    private javax.swing.JLabel ejecucionTiempo;
+    private javax.swing.JLabel exNombre;
+    private javax.swing.JLabel exPrioridad;
+    private javax.swing.JLabel exTiempo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panelEx;
+    private javax.swing.JLabel prioridadLabel;
+    private javax.swing.JLabel prioridad_1;
+    private javax.swing.JLabel prioridad_2;
+    private javax.swing.JLabel prioridad_3;
+    private javax.swing.JLabel prioridad_4;
+    private javax.swing.JLabel proceso_1;
+    private javax.swing.JLabel proceso_2;
+    private javax.swing.JLabel proceso_3;
+    private javax.swing.JLabel proceso_4;
+    private javax.swing.JLabel quantum_1;
+    private javax.swing.JLabel quantum_2;
+    private javax.swing.JLabel quantum_3;
+    private javax.swing.JLabel quantum_4;
     // End of variables declaration//GEN-END:variables
 }

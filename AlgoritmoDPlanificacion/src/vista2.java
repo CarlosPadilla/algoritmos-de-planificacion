@@ -14,9 +14,11 @@ public class vista2 extends javax.swing.JFrame {
         this.contenedor = TEMP; 
         initComponents();
     }
-    public void setVisible(boolean vista, boolean activar){
+    @Override
+    public void setVisible(boolean vista){
+        boolean activar = this.contenedor.activar();
         this.prioridadFil.setVisible(activar);
-        this.jLabel3.setVisible(activar);
+        this.prioridadL.setVisible(activar);
         super.setVisible(vista);
         
     }
@@ -26,7 +28,7 @@ public class vista2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
+        prioridadL = new javax.swing.JLabel();
         agregarMas = new javax.swing.JCheckBox();
         agregar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
@@ -42,8 +44,8 @@ public class vista2 extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Prioridad");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 135, -1, -1));
+        prioridadL.setText("Prioridad");
+        getContentPane().add(prioridadL, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 135, -1, -1));
 
         agregarMas.setText("Agregar más");
         getContentPane().add(agregarMas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 183, -1, -1));
@@ -130,10 +132,10 @@ public class vista2 extends javax.swing.JFrame {
     private javax.swing.JButton cancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombreFil;
     private javax.swing.JComboBox prioridadFil;
+    private javax.swing.JLabel prioridadL;
     private javax.swing.JTextField tiempoFil;
     // End of variables declaration//GEN-END:variables
 }
