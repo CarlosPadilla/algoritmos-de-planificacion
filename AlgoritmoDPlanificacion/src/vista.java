@@ -7,8 +7,8 @@ import javax.swing.JOptionPane;
  */
 public class vista extends javax.swing.JFrame {
     private int FCFS = 1;
-    private int ROUND_ROBIN = 1;
-    private int MULTIPLES_COLAS = 1;
+    private int ROUND_ROBIN = 2;
+    private int MULTIPLES_COLAS = 3;
     public vista() {
         initComponents();
     }

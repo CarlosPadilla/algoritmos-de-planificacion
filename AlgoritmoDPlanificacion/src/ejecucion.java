@@ -9,8 +9,14 @@ public class ejecucion extends javax.swing.JFrame {
    public CPU datos;
    public int TAMAÑO_PREDEFINIDO = 4;
     public ejecucion(int algoritmo) {
-        this.datos = new CPU(this, algoritmo,this.TAMAÑO_PREDEFINIDO);
+        this.datos = new CPU(this, algoritmo, this.TAMAÑO_PREDEFINIDO);
         initComponents();
+        
+    }
+    public void setVisible(boolean vista, boolean activar){
+        this.jLabel19.setVisible(activar);
+        this.jLabel3.setVisible(activar);
+        super.setVisible(vista);
         
     }
 
@@ -220,6 +226,11 @@ public class ejecucion extends javax.swing.JFrame {
         jLabel23.setPreferredSize(new java.awt.Dimension(100, 16));
 
         Ejecutar.setText("Ejecutar");
+        Ejecutar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EjecutarActionPerformed(evt);
+            }
+        });
 
         Cerrar.setText("Cerrar");
         Cerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -346,13 +357,18 @@ public class ejecucion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-    new vista2(this.datos).setVisible(true);
+    new vista2(this.datos).setVisible(true,this.datos.activar());
         datos.imprimir();
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
       this.dispose();
     }//GEN-LAST:event_CerrarActionPerformed
+
+    private void EjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjecutarActionPerformed
+       this.datos.start();
+       
+    }//GEN-LAST:event_EjecutarActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

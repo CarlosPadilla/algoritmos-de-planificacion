@@ -26,4 +26,11 @@ class Proceso {
         return "hola " + this.nombre + " tiempo: " + this.time;
 
     }
+     public boolean ejecutable(){
+         return --this.time > 0;
+     }
+     public boolean eliminable(){
+         return !(this.time > 0);
+     }
+     
 }

@@ -570,6 +570,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ejecutar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EjecutarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Cerrar">
       <Properties>
