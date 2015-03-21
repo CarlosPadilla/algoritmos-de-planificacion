@@ -30,13 +30,11 @@ public class CPU extends Thread {
         try {
             Ejecutar();
         } catch (InterruptedException ex) {
-            System.out.println("error" + CPU.class.getName());
-            Logger.getLogger(CPU.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("error" + CPU.class.getName() + ex);
         }
     }
 
     public void Ejecutar() throws InterruptedException{
-        
         for (Proceso proceso : this.cola) {
             while (proceso != null && proceso.ejecutable()) {
                 Thread.sleep(1000);
@@ -49,6 +47,7 @@ public class CPU extends Thread {
         for (Proceso proceso : this.cola) {
             if (proceso != null) {
                 System.out.println(proceso.toString());
+                
             }
         }
 
