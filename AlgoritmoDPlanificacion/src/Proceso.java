@@ -23,7 +23,7 @@ class Proceso {
     }
      @Override
     public String toString(){
-        return "hola " + this.nombre + " tiempo: " + this.time;
+        return this.nombre + " tiempo: " + this.time;
 
     }
      public String getNombre(){

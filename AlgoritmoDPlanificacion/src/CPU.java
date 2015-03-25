@@ -1,4 +1,6 @@
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -38,6 +40,13 @@ public class CPU extends Thread {
             this.traerAEjecucion();
         } catch (InterruptedException ex) {
             System.out.println("error" + CPU.class.getName() + ex);
+        }
+        
+        try {
+            Thread.sleep(2000);
+            this.VMenu.regresar();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CPU.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
         public void traerAEjecucion() throws InterruptedException{

@@ -141,9 +141,11 @@ public class vista2 extends javax.swing.JFrame {
     }//GEN-LAST:event_tiempoFilKeyTyped
 
     private void nombreFilKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreFilKeyReleased
-//        if (Character.compare(evt.getKeyChar(), '0X0D')) {
-//            
-//        }
+        char c = (char)0x0A;
+        if (Character.compare(evt.getKeyChar(), c) == 0) {
+            System.out.println("soy enter");
+            this.comprobar();
+        }
     }//GEN-LAST:event_nombreFilKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

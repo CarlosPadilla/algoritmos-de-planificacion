@@ -1,14 +1,13 @@
 
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author ALEJANDRA KSTELLANOS
  */
 public class vista extends javax.swing.JFrame {
-    private int FCFS = 1;
-    private int ROUND_ROBIN = 2;
-    private int MULTIPLES_COLAS = 3;
+    private final int FCFS = 1;
+    private final int ROUND_ROBIN = 2;
+    private final int MULTIPLES_COLAS = 3;
     public vista() {
         initComponents();
     }
@@ -152,7 +151,7 @@ public class vista extends javax.swing.JFrame {
     private void roundRobinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundRobinMouseClicked
     round_robin vista = new round_robin(); 
     vista.setVisible(true);
-    new ejecucion(this.ROUND_ROBIN).setVisible(true);
+    new ejecucion(this.ROUND_ROBIN, vista, this).setVisible(true);
     
     }//GEN-LAST:event_roundRobinMouseClicked
 
@@ -162,13 +161,13 @@ public class vista extends javax.swing.JFrame {
     private void multiplesColasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiplesColasMouseClicked
         multiplesColas vista = new multiplesColas();
         vista.setVisible(true);
-        new ejecucion(this.MULTIPLES_COLAS).setVisible(true);
+        new ejecucion(this.MULTIPLES_COLAS, vista, this).setVisible(true);
     }//GEN-LAST:event_multiplesColasMouseClicked
 
     private void fcfsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fcfsMouseClicked
         fcfs vista = new fcfs();
         vista.setVisible(true);
-        new ejecucion(this.FCFS).setVisible(true);
+        new ejecucion(this.FCFS, vista, this).setVisible(true);
     }//GEN-LAST:event_fcfsMouseClicked
 
     public static void main(String args[]) {
