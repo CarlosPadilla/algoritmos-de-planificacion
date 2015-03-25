@@ -45,5 +45,38 @@ class Proceso {
      public boolean eliminable(){
          return !(this.time > 0);
      }
+
+    void degradar() {
+        switch(this.obtenerPrioridad()){
+            case "A":{
+                this.priority = 'B';
+                break;
+            }
+            case "B":{
+                this.priority = 'C';
+                break;
+            }
+            case "C":{
+                this.priority = 'D';
+                break;
+            }
+            case "D":{
+                this.priority = 'E';
+                break;
+            }
+            case "E":{
+                this.priority = 'F';
+                break;
+            }
+            case "F":{
+                this.priority = ' ';
+                break;
+            }
+        }
+    }
+
+    public int prioridad() {
+        return this.priority;
+    }
      
 }

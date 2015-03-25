@@ -21,6 +21,7 @@ public class round_robin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Round_Robin\n");
+        setLocation(new java.awt.Point(410, 23));
 
         jTextArea1.setBackground(new java.awt.Color(255, 255, 153));
         jTextArea1.setColumns(20);

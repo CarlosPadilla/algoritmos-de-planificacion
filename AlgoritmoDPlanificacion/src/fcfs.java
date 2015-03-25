@@ -21,6 +21,7 @@ public class fcfs extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("FCFS");
+        setLocation(new java.awt.Point(410, 23));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Algoritmo de planificación: FCFS");

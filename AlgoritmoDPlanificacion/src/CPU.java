@@ -1,6 +1,4 @@
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -17,6 +15,13 @@ public class CPU extends Thread {
     private Proceso[] cola; 
     private Proceso enEjecucion; 
     private ejecucion VMenu;
+//    A = 5
+//    B = 10
+//    C = 15
+//    D = 20
+//    E = 25
+//    F = 30
+    public int[] tiemposDPrioridad = {5,10,15,20,25,30};
     public int tamaño;
     private int quantumsPredefinidos = 5;
 
@@ -37,9 +42,18 @@ public class CPU extends Thread {
     }
         public void traerAEjecucion() throws InterruptedException{
         this.recorrer();
-        if (this.algoritmo == 2) {
-            this.esIncompleto();
+        switch(this.algoritmo){
+            case 2:{
+                this.esIncompleto();
+                break;
+            }
+            case 3:{
+                this.esIncompleto();
+                this.ordenarPorPrioridad();
+                break;
+            }
         }
+
         if (this.cola[0] != null && !this.cola[0].eliminable() ) {
             this.enEjecucion = this.cola[0];
             this.cola[0] = null;
@@ -60,7 +74,7 @@ public class CPU extends Thread {
                 break;
             }
             case 2:{
-                while (this.enEjecucion != null && !this.enEjecucion.ejecutable() && this.tiempoRR()) {
+                while (this.enEjecucion != null && this.tiempoRR()) {
                     Thread.sleep(1000);
                     this.imprimir();
                 }
@@ -69,6 +83,38 @@ public class CPU extends Thread {
                 break;
             }
             case 3:{
+                switch(this.enEjecucion.obtenerPrioridad()){
+                    case "A":{
+                        this.quantumsPredefinidos = this.tiemposDPrioridad[0];
+                        break;
+                    }
+                    case "B":{
+                        this.quantumsPredefinidos = this.tiemposDPrioridad[1];
+                        break;
+                    }
+                    case "C":{
+                        this.quantumsPredefinidos = this.tiemposDPrioridad[2];
+                        break;
+                    }
+                    case "D":{
+                        this.quantumsPredefinidos = this.tiemposDPrioridad[3];
+                        break;
+                    }
+                    case "E":{
+                        this.quantumsPredefinidos = this.tiemposDPrioridad[4];
+                        break;
+                    }
+                    case "F":{
+                        this.quantumsPredefinidos = this.tiemposDPrioridad[5];
+                        break;
+                    }
+                }
+                while (this.enEjecucion != null && this.tiempoMC()) {
+                    Thread.sleep(1000);
+                    this.imprimir();
+                }
+                this.enEjecucion.degradar();
+                this.traerAEjecucion();
                 break;
             }
         }
@@ -96,10 +142,8 @@ public class CPU extends Thread {
         }
         if (this.enEjecucion != null) {
             this.VMenu.MostrarDatosEnEjecucion(this.enEjecucion.getNombre(),this.enEjecucion.getTiempo(),this.enEjecucion.obtenerPrioridad());
-        }else{
-            this.VMenu.MostrarDatosEnEjecucion(" "," "," ");
+             System.out.println("ejecutando: "+ this.enEjecucion);
         }
-
     }
     public void esIncompleto(){
         boolean escrito = false;
@@ -145,9 +189,11 @@ public class CPU extends Thread {
                 if(this.algoritmo!= 3){
                     this.cola[posicion] = new Proceso(nombre, tiempo);
                     escrito = true;
+                    this.imprimir();
                 }else{
                     this.cola[posicion] = new Proceso(nombre, tiempo, prioridad);
                     escrito = true;
+                    this.imprimir();
                 }
             }
             posicion++;
@@ -162,6 +208,30 @@ public class CPU extends Thread {
     }
 
     private boolean tiempoRR() {
-        return --this.quantumsPredefinidos >= 5;
+        this.enEjecucion.ejecutable();
+        return (--this.quantumsPredefinidos > 0 && !this.enEjecucion.eliminable());
+    }
+    
+    private boolean tiempoMC() {
+        this.enEjecucion.ejecutable();
+        return (--this.quantumsPredefinidos > 0 && !this.enEjecucion.eliminable());
+    }
+
+    private void ordenarPorPrioridad() {
+        Proceso procesoAIntercambiar;
+        int posicionDelmenor = 0;
+        for (int posicionA = 0; posicionA < this.tamaño; posicionA++) {
+            posicionDelmenor = posicionA;
+            for (int posicionB = posicionA+1; posicionB < this.tamaño; posicionB++) {
+                if (this.cola[posicionDelmenor] != null && this.cola[posicionB] != null) {
+                    if (this.cola[posicionDelmenor].prioridad() > this.cola[posicionB].prioridad()) {
+                        posicionDelmenor = posicionB;
+                    }
+                }
+            }
+            procesoAIntercambiar = this.cola[posicionA];
+            this.cola[posicionA] = this.cola[posicionDelmenor];
+            this.cola[posicionDelmenor] = procesoAIntercambiar;
+        }
     }
 }
