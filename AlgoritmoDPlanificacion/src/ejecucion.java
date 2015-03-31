@@ -1,5 +1,6 @@
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 
 
@@ -12,6 +13,7 @@ import javax.swing.JLabel;
 public class ejecucion extends javax.swing.JFrame {
 
    public CPU datos;
+   private int algoritmo;
    public javax.swing.JFrame ventanasDescripcion;
    public vista menuPrincipal;
    public int TAMAÑO_PREDEFINIDO = 4;
@@ -39,6 +41,7 @@ public class ejecucion extends javax.swing.JFrame {
         this.prioridades[3] = this.prioridad_4;
         
         this.datos = new CPU(this, algoritmo, this.TAMAÑO_PREDEFINIDO);
+        this.algoritmo = algoritmo;
         
         this.menuPrincipal = menuPrincipal;
         this.menuPrincipal.setVisible(false);
@@ -365,6 +368,7 @@ public class ejecucion extends javax.swing.JFrame {
     private void EjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjecutarActionPerformed
         this.Ejecutar.setEnabled(false);
         this.datos.start();
+        this.datos = new CPU(this, this.algoritmo, this.TAMAÑO_PREDEFINIDO);
        
     }//GEN-LAST:event_EjecutarActionPerformed
 
