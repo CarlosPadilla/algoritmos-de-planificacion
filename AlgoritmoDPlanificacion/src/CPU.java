@@ -83,11 +83,12 @@ public class CPU extends Thread {
                 break;
             }
             case 2:{
+                int auxTiempo = this.quantumsPredefinidos;
                 while (this.enEjecucion != null && this.tiempoRR()) {
                     Thread.sleep(1000);
                     this.imprimir();
                 }
-                this.quantumsPredefinidos = 5;
+                this.quantumsPredefinidos = auxTiempo;
                 this.traerAEjecucion();
                 break;
             }
@@ -224,6 +225,9 @@ public class CPU extends Thread {
     private boolean tiempoMC() {
         this.enEjecucion.ejecutable();
         return (--this.quantumsPredefinidos > 0 && !this.enEjecucion.eliminable());
+    }
+    public void setTiempoRoundRobin(){
+        this.quantumsPredefinidos = Integer.parseInt(JOptionPane.showInputDialog(this.VMenu, "Ingresa el tiempo de ejecucion base"));
     }
 
     private void ordenarPorPrioridad() {

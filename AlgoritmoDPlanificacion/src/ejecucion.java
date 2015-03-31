@@ -16,7 +16,7 @@ public class ejecucion extends javax.swing.JFrame {
    private int algoritmo;
    public javax.swing.JFrame ventanasDescripcion;
    public vista menuPrincipal;
-   public int TAMAÑO_PREDEFINIDO = 4;
+   public int TAMAÑO_PREDEFINIDO = 5;
    public String[] titulos = {"FCFS","Round Robin","Multiples Colas"};
    public javax.swing.JLabel[] nombres;
    public javax.swing.JLabel[] quantums;
@@ -31,14 +31,17 @@ public class ejecucion extends javax.swing.JFrame {
         this.nombres[1] = this.proceso_2;
         this.nombres[2] = this.proceso_3;
         this.nombres[3] = this.proceso_4;
+        this.nombres[4] = this.proceso_5;
         this.quantums[0] = this.quantum_1;
         this.quantums[1] = this.quantum_2;
         this.quantums[2] = this.quantum_3;
         this.quantums[3] = this.quantum_4;
+        this.quantums[4] = this.quantum_5;
         this.prioridades[0] = this.prioridad_1;
         this.prioridades[1] = this.prioridad_2;
         this.prioridades[2] = this.prioridad_3;
         this.prioridades[3] = this.prioridad_4;
+        this.prioridades[4] = this.prioridad_5;
         
         this.datos = new CPU(this, algoritmo, this.TAMAÑO_PREDEFINIDO);
         this.algoritmo = algoritmo;
@@ -49,6 +52,7 @@ public class ejecucion extends javax.swing.JFrame {
         
         this.algoritmoAEjecutar.setText(this.titulos[algoritmo-1]);
     }
+   @Override
     public void setVisible(boolean vista){
         boolean activar = this.datos.activar();
         for (JLabel labelPrioridad : this.prioridades) {
@@ -74,7 +78,6 @@ public class ejecucion extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -109,6 +112,9 @@ public class ejecucion extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         algoritmoAEjecutar = new javax.swing.JLabel();
+        prioridad_5 = new javax.swing.JLabel();
+        proceso_5 = new javax.swing.JLabel();
+        quantum_5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("proceso\n");
@@ -138,13 +144,13 @@ public class ejecucion extends javax.swing.JFrame {
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setText("Proceso");
-        jLayeredPane1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 187, -1, -1));
+        jLayeredPane1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         prioridadLabel.setText("Prioridad");
-        jLayeredPane1.add(prioridadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 236, -1, -1));
+        jLayeredPane1.add(prioridadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         jLabel11.setText("Quantum");
-        jLayeredPane1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 209, -1, -1));
+        jLayeredPane1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         prioridad_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prioridad_2.setText("valor     ");
@@ -152,73 +158,29 @@ public class ejecucion extends javax.swing.JFrame {
         prioridad_2.setMaximumSize(new java.awt.Dimension(100, 16));
         prioridad_2.setMinimumSize(new java.awt.Dimension(100, 16));
         prioridad_2.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(prioridad_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 235, 50, -1));
+        jLayeredPane1.add(prioridad_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 50, -1));
 
         panelEx.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelEx.setLayout(new java.awt.GridBagLayout());
+        panelEx.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setText("En ejecución");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 0);
-        panelEx.add(jLabel12, gridBagConstraints);
+        panelEx.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
 
         ejecucionNombre.setText("Proceso");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 11, 0, 0);
-        panelEx.add(ejecucionNombre, gridBagConstraints);
+        panelEx.add(ejecucionNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 47, -1, -1));
 
         ejecucionTiempo.setText("Quantum");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 11, 0, 0);
-        panelEx.add(ejecucionTiempo, gridBagConstraints);
+        panelEx.add(ejecucionTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 74, -1, -1));
 
         exNombre.setText("1");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 24;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 11);
-        panelEx.add(exNombre, gridBagConstraints);
+        panelEx.add(exNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 47, 32, -1));
 
         exTiempo.setText("!");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 28;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 11);
-        panelEx.add(exTiempo, gridBagConstraints);
+        panelEx.add(exTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 74, 32, -1));
 
         ejecucionPrioridad.setText("Prioridad");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 11, 38, 0);
-        panelEx.add(ejecucionPrioridad, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 32;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 4, 38, 11);
-        panelEx.add(exPrioridad, gridBagConstraints);
+        panelEx.add(ejecucionPrioridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 101, -1, -1));
+        panelEx.add(exPrioridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLayeredPane1.add(panelEx, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 11, -1, -1));
 
@@ -228,7 +190,7 @@ public class ejecucion extends javax.swing.JFrame {
         prioridad_1.setMaximumSize(new java.awt.Dimension(100, 16));
         prioridad_1.setMinimumSize(new java.awt.Dimension(100, 16));
         prioridad_1.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(prioridad_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 235, 50, -1));
+        jLayeredPane1.add(prioridad_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 50, -1));
 
         prioridad_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prioridad_3.setText("valor     ");
@@ -236,7 +198,7 @@ public class ejecucion extends javax.swing.JFrame {
         prioridad_3.setMaximumSize(new java.awt.Dimension(100, 16));
         prioridad_3.setMinimumSize(new java.awt.Dimension(100, 16));
         prioridad_3.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(prioridad_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 235, 50, -1));
+        jLayeredPane1.add(prioridad_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 50, -1));
 
         prioridad_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prioridad_4.setText("valor     ");
@@ -244,7 +206,7 @@ public class ejecucion extends javax.swing.JFrame {
         prioridad_4.setMaximumSize(new java.awt.Dimension(100, 16));
         prioridad_4.setMinimumSize(new java.awt.Dimension(100, 16));
         prioridad_4.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(prioridad_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 50, -1));
+        jLayeredPane1.add(prioridad_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 50, -1));
 
         proceso_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         proceso_4.setText("valor     ");
@@ -252,7 +214,7 @@ public class ejecucion extends javax.swing.JFrame {
         proceso_4.setMaximumSize(new java.awt.Dimension(100, 16));
         proceso_4.setMinimumSize(new java.awt.Dimension(100, 16));
         proceso_4.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(proceso_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 186, 50, -1));
+        jLayeredPane1.add(proceso_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 50, -1));
 
         quantum_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quantum_4.setText("valor     ");
@@ -260,7 +222,7 @@ public class ejecucion extends javax.swing.JFrame {
         quantum_4.setMaximumSize(new java.awt.Dimension(100, 16));
         quantum_4.setMinimumSize(new java.awt.Dimension(100, 16));
         quantum_4.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(quantum_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 50, -1));
+        jLayeredPane1.add(quantum_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 50, -1));
 
         Ejecutar.setText("Ejecutar");
         Ejecutar.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +238,7 @@ public class ejecucion extends javax.swing.JFrame {
         proceso_1.setMaximumSize(new java.awt.Dimension(100, 16));
         proceso_1.setMinimumSize(new java.awt.Dimension(100, 16));
         proceso_1.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(proceso_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 186, 50, -1));
+        jLayeredPane1.add(proceso_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 50, -1));
 
         proceso_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         proceso_3.setText("valor     ");
@@ -284,7 +246,7 @@ public class ejecucion extends javax.swing.JFrame {
         proceso_3.setMaximumSize(new java.awt.Dimension(100, 16));
         proceso_3.setMinimumSize(new java.awt.Dimension(100, 16));
         proceso_3.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(proceso_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 186, 50, -1));
+        jLayeredPane1.add(proceso_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 50, -1));
 
         proceso_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         proceso_2.setText("valor     ");
@@ -292,7 +254,7 @@ public class ejecucion extends javax.swing.JFrame {
         proceso_2.setMaximumSize(new java.awt.Dimension(100, 16));
         proceso_2.setMinimumSize(new java.awt.Dimension(100, 16));
         proceso_2.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(proceso_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 186, 50, -1));
+        jLayeredPane1.add(proceso_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 50, -1));
 
         quantum_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quantum_2.setText("valor     ");
@@ -300,7 +262,7 @@ public class ejecucion extends javax.swing.JFrame {
         quantum_2.setMaximumSize(new java.awt.Dimension(100, 16));
         quantum_2.setMinimumSize(new java.awt.Dimension(100, 16));
         quantum_2.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(quantum_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 208, 50, -1));
+        jLayeredPane1.add(quantum_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 50, -1));
 
         quantum_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quantum_3.setText("valor     ");
@@ -308,7 +270,7 @@ public class ejecucion extends javax.swing.JFrame {
         quantum_3.setMaximumSize(new java.awt.Dimension(100, 16));
         quantum_3.setMinimumSize(new java.awt.Dimension(100, 16));
         quantum_3.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(quantum_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 208, 50, -1));
+        jLayeredPane1.add(quantum_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 50, -1));
 
         Cerrar.setText("Salir");
         Cerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -332,7 +294,7 @@ public class ejecucion extends javax.swing.JFrame {
         quantum_1.setMaximumSize(new java.awt.Dimension(100, 16));
         quantum_1.setMinimumSize(new java.awt.Dimension(100, 16));
         quantum_1.setPreferredSize(new java.awt.Dimension(100, 16));
-        jLayeredPane1.add(quantum_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 208, 50, -1));
+        jLayeredPane1.add(quantum_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 50, -1));
 
         jButton1.setText("Regresar <--");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -350,7 +312,31 @@ public class ejecucion extends javax.swing.JFrame {
         algoritmoAEjecutar.setText("alg");
         jLayeredPane1.add(algoritmoAEjecutar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 150, -1));
 
-        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 430, 260));
+        prioridad_5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prioridad_5.setText("valor     ");
+        prioridad_5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        prioridad_5.setMaximumSize(new java.awt.Dimension(100, 16));
+        prioridad_5.setMinimumSize(new java.awt.Dimension(100, 16));
+        prioridad_5.setPreferredSize(new java.awt.Dimension(100, 16));
+        jLayeredPane1.add(prioridad_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 50, -1));
+
+        proceso_5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        proceso_5.setText("valor     ");
+        proceso_5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        proceso_5.setMaximumSize(new java.awt.Dimension(100, 16));
+        proceso_5.setMinimumSize(new java.awt.Dimension(100, 16));
+        proceso_5.setPreferredSize(new java.awt.Dimension(100, 16));
+        jLayeredPane1.add(proceso_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 50, -1));
+
+        quantum_5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quantum_5.setText("valor     ");
+        quantum_5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        quantum_5.setMaximumSize(new java.awt.Dimension(100, 16));
+        quantum_5.setMinimumSize(new java.awt.Dimension(100, 16));
+        quantum_5.setPreferredSize(new java.awt.Dimension(100, 16));
+        jLayeredPane1.add(quantum_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 50, -1));
+
+        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 390, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -366,6 +352,10 @@ public class ejecucion extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarActionPerformed
 
     private void EjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjecutarActionPerformed
+        if (this.algoritmo == 2) {
+            this.datos.setTiempoRoundRobin();
+        }
+        this.Ejecutar.setEnabled(false);
         this.Ejecutar.setEnabled(false);
         this.datos.start();
         this.datos = new CPU(this, this.algoritmo, this.TAMAÑO_PREDEFINIDO);
@@ -403,14 +393,17 @@ public class ejecucion extends javax.swing.JFrame {
     private javax.swing.JLabel prioridad_2;
     private javax.swing.JLabel prioridad_3;
     private javax.swing.JLabel prioridad_4;
+    private javax.swing.JLabel prioridad_5;
     private javax.swing.JLabel proceso_1;
     private javax.swing.JLabel proceso_2;
     private javax.swing.JLabel proceso_3;
     private javax.swing.JLabel proceso_4;
+    private javax.swing.JLabel proceso_5;
     private javax.swing.JLabel quantum_1;
     private javax.swing.JLabel quantum_2;
     private javax.swing.JLabel quantum_3;
     private javax.swing.JLabel quantum_4;
+    private javax.swing.JLabel quantum_5;
     // End of variables declaration//GEN-END:variables
 
 }
